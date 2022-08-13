@@ -11,6 +11,7 @@ class ExpressionEvaluatorTest {
     fun `Simple expression properly evaluated`() {
         evaluator = ExpressionEvaluator(
             listOf(
+                ExpressionPart.Op(Operation.SUBTRACT),
                 ExpressionPart.Number(4.0),
                 ExpressionPart.Op(Operation.ADD),
                 ExpressionPart.Number(5.0),
@@ -23,7 +24,7 @@ class ExpressionEvaluatorTest {
             )
         )
 
-        assertThat(evaluator.evaluate()).isEqualTo(4)
+        assertThat(evaluator.evaluate()).isEqualTo(-4)
     }
 
     @Test
